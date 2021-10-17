@@ -1,10 +1,10 @@
 #include <stdio.h>
 void main()
 {
-int a[100], n, i, j, position, swap;
-printf("Enter number of elements \n");
+int a[10000000], n, i, j, position, temp;
+printf("Enter number of elements : ");
 scanf("%d", &n);
-printf("Enter %d Numbers \n", n);
+printf("Enter %d Numbers : ", n);
 for (i = 0; i < n; i++)
 scanf("%d", &a[i]);
 for(i = 0; i < n - 1; i++)
@@ -17,13 +17,12 @@ position=j;
 }
 if(position != i)
 {
-swap=a[i];
+temp=a[i];
 a[i]=a[position];
-a[position]=swap;
+a[position]=temp;
 }
 }
 printf("Sorted Array:n");
-for(i = 0; i < n; i++)
-printf("%d \n", a[i]);
-return 0;
+for(j = 0; j < n; j++)
+printf("%d \n", a[j]);
 }
