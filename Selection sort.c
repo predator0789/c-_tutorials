@@ -1,28 +1,32 @@
 #include <stdio.h>
-void main()
+void swap(int *xp, int *yp)
 {
-int a[10000000], n, i, j, position, temp;
-printf("Enter number of elements : ");
-scanf("%d", &n);
-printf("Enter %d Numbers : ", n);
-for (i = 0; i < n; i++)
-scanf("%d", &a[i]);
-for(i = 0; i < n - 1; i++)
+    int temp = *xp;
+    *xp = *yp;
+    *yp = temp;
+}
+void selectionSort(int arr[], int n)
 {
-position=i;
-for(j = i + 1; j < n; j++)
+    int i, j, min;
+    for (i = 0; i < n-1; i++)
+    {
+        min = i;
+        for (j = i+1; j < n; j++)
+          if (arr[j] < arr[min])
+            min = j;
+        swap(&arr[min], &arr[i]);
+    }}
+int main()
 {
-if(a[position] > a[j])
-position=j;
-}
-if(position != i)
-{
-temp=a[i];
-a[i]=a[position];
-a[position]=temp;
-}
-}
-printf("Sorted Array:n");
-for(j = 0; j < n; j++)
-printf("%d \n", a[j]);
-}
+   int arr[100],n,i;
+   printf("enter size");
+   scanf("%d",&n);
+   printf("enter elements");
+   for(i=0;i<n;i++)
+   scanf("%d",&arr[i]);
+    selectionSort(arr, n);
+    printf("Sorted array: \n");
+        for (i=0; i <n; i++)
+        printf("%d ", arr[i]);
+    printf("\n");
+    return 0;}
